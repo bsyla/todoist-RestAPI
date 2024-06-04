@@ -1,0 +1,261 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-04T03:04:37.291Z",
+    "end": "2024-06-04T03:04:40.224Z",
+    "duration": 2933,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "18f16407-3aa0-42af-8fbc-65e3c9289327",
+      "title": "",
+      "fullFile": "/Users/bjornisyla/Desktop/RestAPI-FinalTask/tests/scenarios/projectCRUD.js",
+      "file": "/tests/scenarios/projectCRUD.js",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "createProjectWithoutName();\ncreateProject();\nupdateProjectWithIncorrectColour();\ngetProject();",
+          "err": {},
+          "uuid": "39a14044-7bfa-4645-b598-413b1d25a54b",
+          "parentUUID": "18f16407-3aa0-42af-8fbc-65e3c9289327",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Project Crud Test Set(Positive And Negative)",
+          "fullTitle": "Project Crud Test Set(Positive And Negative)",
+          "timedOut": false,
+          "duration": 1,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "describe(\"[POSITIVE]\", () => {\n  updateCreatedProject();\n  getProject();\n  deleteCreatedProject();\n});",
+          "err": {},
+          "uuid": "e0182094-f548-4f4d-b8c5-54aa2a0e5971",
+          "parentUUID": "18f16407-3aa0-42af-8fbc-65e3c9289327",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "[NEGATIVE] - Create Project Without Name",
+          "fullTitle": "[NEGATIVE] - Create Project Without Name",
+          "timedOut": false,
+          "duration": 315,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": "[\n  \"POST /projects\",\n  {\n    \"title\": \"REQUEST HEADERS\",\n    \"value\": {\n      \"Content-Type\": \"application/json\",\n      \"Accept\": \"*/*\",\n      \"Connection\": \"keep-alive\",\n      \"Authorization\": \"Bearer 8395c13ccb7bc7a2e9cb028274f0348ce487a139\"\n    }\n  },\n  {\n    \"title\": \"REQUEST BODY\",\n    \"value\": {\n      \"name\": \"Joan41\",\n      \"color\": \"lavender\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE HEADERS\",\n    \"value\": {\n      \"content-type\": \"text/plain; charset=utf-8\",\n      \"content-length\": \"46\",\n      \"connection\": \"keep-alive\",\n      \"date\": \"Tue, 04 Jun 2024 03:04:37 GMT\",\n      \"access-control-allow-credentials\": \"false\",\n      \"access-control-allow-origin\": \"*\",\n      \"cache-control\": \"no-cache\",\n      \"referrer-policy\": \"strict-origin-when-cross-origin\",\n      \"server\": \"gunicorn\",\n      \"set-cookie\": [\n        \"csrf=08d5c1f623ec4299bffb0c3f369874df; Expires=Fri, 02-Jun-2034 03:04:37 GMT; Secure; Path=/; SameSite=None\",\n        \"tduser=v4.public.eyJ1c2VyX2lkIjogNDk0NjQwMTksICJleHAiOiAiMjAyNC0wNi0xOFQwMzowNDozNyswMDowMCJ9NiG7vM3qJh9TqeBjiGPGIT9454LXgBoLZsGr03PBHNnDCadCQXWnUxYw9icN0f92FuIOyCCD8JvilnCRzbHFAw; Domain=.todoist.com; Expires=Tue, 18-Jun-2024 03:04:37 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/\",\n        \"todoistd=\\\"/CUdA09psYiwY7pwgn9sRGC/RQQ=?\\\"; Domain=.todoist.com; Expires=Wed, 04-Jun-2025 03:04:37 GMT; Max-Age=31536000; Secure; HttpOnly; Path=/; SameSite=None\"\n      ],\n      \"strict-transport-security\": \"max-age=31536000; includeSubDomains; preload\",\n      \"vary\": \"Accept-Encoding\",\n      \"x-cache\": \"Error from cloudfront\",\n      \"via\": \"1.1 530e9f4b5e6084726110986459f0c18c.cloudfront.net (CloudFront)\",\n      \"x-amz-cf-pop\": \"VIE50-C2\",\n      \"x-amz-cf-id\": \"updMSG6wafMGc6oJItz_nilDfY15C39ZqWZ1oKcjvdPuwfwunUQ-9g==\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE BODY\",\n    \"value\": {}\n  }\n]",
+          "code": "const requestBody = await generateCreateProjectRequestBody();\nrequestBody.name = \"\";\nawait request(this, \"POST\", \"/projects\", requestBody, true, {\n  statusCode: 400,\n  notExpectedFields: [], //our response is a blank {} so the validation i made was reversed that 'fields' were undefined\n});",
+          "err": {},
+          "uuid": "f8b137be-9687-4a8d-840b-20a8b0c3037b",
+          "parentUUID": "18f16407-3aa0-42af-8fbc-65e3c9289327",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Create Project",
+          "fullTitle": "Create Project",
+          "timedOut": false,
+          "duration": 781,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": "[\n  \"POST /projects\",\n  {\n    \"title\": \"REQUEST HEADERS\",\n    \"value\": {\n      \"Content-Type\": \"application/json\",\n      \"Accept\": \"*/*\",\n      \"Connection\": \"keep-alive\",\n      \"Authorization\": \"Bearer 8395c13ccb7bc7a2e9cb028274f0348ce487a139\"\n    }\n  },\n  {\n    \"title\": \"REQUEST BODY\",\n    \"value\": {\n      \"name\": \"Joan41\",\n      \"color\": \"lavender\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE HEADERS\",\n    \"value\": {\n      \"content-type\": \"application/json\",\n      \"content-length\": \"305\",\n      \"connection\": \"keep-alive\",\n      \"date\": \"Tue, 04 Jun 2024 03:04:38 GMT\",\n      \"access-control-allow-credentials\": \"false\",\n      \"access-control-allow-origin\": \"*\",\n      \"cache-control\": \"no-cache\",\n      \"referrer-policy\": \"strict-origin-when-cross-origin\",\n      \"server\": \"gunicorn\",\n      \"set-cookie\": [\n        \"csrf=92e74d96dcff44f7bec43c8cf824a50a; Expires=Fri, 02-Jun-2034 03:04:38 GMT; Secure; Path=/; SameSite=None\",\n        \"tduser=v4.public.eyJ1c2VyX2lkIjogNDk0NjQwMTksICJleHAiOiAiMjAyNC0wNi0xOFQwMzowNDozOCswMDowMCJ9REMV1A6DVzazhDfAQdk6EQ3kO9-rxGHD8xZs1nISYc9hb8Gj4PZegJ3kVnaVo6-GjnOalzFDAMOj5tSwsXXYAw; Domain=.todoist.com; Expires=Tue, 18-Jun-2024 03:04:38 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/\",\n        \"todoistd=\\\"/CUdA09psYiwY7pwgn9sRGC/RQQ=?\\\"; Domain=.todoist.com; Expires=Wed, 04-Jun-2025 03:04:38 GMT; Max-Age=31536000; Secure; HttpOnly; Path=/; SameSite=None\"\n      ],\n      \"strict-transport-security\": \"max-age=31536000; includeSubDomains; preload\",\n      \"vary\": \"Accept-Encoding\",\n      \"x-cache\": \"Miss from cloudfront\",\n      \"via\": \"1.1 642d71984e3d1baa43fcd1fe0b0c012e.cloudfront.net (CloudFront)\",\n      \"x-amz-cf-pop\": \"VIE50-C2\",\n      \"x-amz-cf-id\": \"W0F5rZ4nkrqQbA17rv2U_MMVW6g3xnmLNnuLNX0k4KyoAYyxhcxJZw==\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE BODY\",\n    \"value\": {\n      \"id\": \"2334234613\",\n      \"parent_id\": null,\n      \"order\": 4,\n      \"color\": \"light_blue\",\n      \"name\": \"Mafalda.Towne\",\n      \"comment_count\": 0,\n      \"is_shared\": false,\n      \"is_favorite\": false,\n      \"is_inbox_project\": false,\n      \"is_team_inbox\": false,\n      \"url\": \"https://todoist.com/showProject?id=2334234613\",\n      \"view_style\": \"list\"\n    }\n  }\n]",
+          "code": "const requestBody = await generateCreateProjectRequestBody();\nawait request(this, \"POST\", \"/projects\", requestBody, true, {\n  statusCode: 200,\n  expectedValues: [{ path: \"name\", value: requestBody.name }],\n  executionVariables: [\n    { path: \"id\", name: \"projectID\" },\n    { path: \"name\", name: \"projectName\" },\n    { path: \"color\", name: \"projectColor\" },\n  ],\n  expectedTypes: [\n    { path: \"id\", type: \"string\" },\n    { path: \"name\", type: \"string\" },\n    { path: \"color\", type: \"string\" },\n  ],\n});",
+          "err": {},
+          "uuid": "e370e27a-65a4-43ea-bccc-9f3db6f19d9e",
+          "parentUUID": "18f16407-3aa0-42af-8fbc-65e3c9289327",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "[NEGATIVE] - Update Project With Incorrect Color",
+          "fullTitle": "[NEGATIVE] - Update Project With Incorrect Color",
+          "timedOut": false,
+          "duration": 235,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": "[\n  \"POST /projects/2334234613\",\n  {\n    \"title\": \"REQUEST HEADERS\",\n    \"value\": {\n      \"Content-Type\": \"application/json\",\n      \"Accept\": \"*/*\",\n      \"Connection\": \"keep-alive\",\n      \"Authorization\": \"Bearer 8395c13ccb7bc7a2e9cb028274f0348ce487a139\"\n    }\n  },\n  {\n    \"title\": \"REQUEST BODY\",\n    \"value\": {\n      \"name\": \"Joan41\",\n      \"color\": \"lavender\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE HEADERS\",\n    \"value\": {\n      \"content-type\": \"text/plain; charset=utf-8\",\n      \"content-length\": \"25\",\n      \"connection\": \"keep-alive\",\n      \"date\": \"Tue, 04 Jun 2024 03:04:38 GMT\",\n      \"access-control-allow-credentials\": \"false\",\n      \"access-control-allow-origin\": \"*\",\n      \"cache-control\": \"no-cache\",\n      \"referrer-policy\": \"strict-origin-when-cross-origin\",\n      \"server\": \"gunicorn\",\n      \"set-cookie\": [\n        \"csrf=bc226a530fe64583813abe1580272637; Expires=Fri, 02-Jun-2034 03:04:38 GMT; Secure; Path=/; SameSite=None\",\n        \"tduser=v4.public.eyJ1c2VyX2lkIjogNDk0NjQwMTksICJleHAiOiAiMjAyNC0wNi0xOFQwMzowNDozOCswMDowMCJ9REMV1A6DVzazhDfAQdk6EQ3kO9-rxGHD8xZs1nISYc9hb8Gj4PZegJ3kVnaVo6-GjnOalzFDAMOj5tSwsXXYAw; Domain=.todoist.com; Expires=Tue, 18-Jun-2024 03:04:38 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/\",\n        \"todoistd=\\\"/CUdA09psYiwY7pwgn9sRGC/RQQ=?\\\"; Domain=.todoist.com; Expires=Wed, 04-Jun-2025 03:04:38 GMT; Max-Age=31536000; Secure; HttpOnly; Path=/; SameSite=None\"\n      ],\n      \"strict-transport-security\": \"max-age=31536000; includeSubDomains; preload\",\n      \"vary\": \"Accept-Encoding\",\n      \"x-cache\": \"Error from cloudfront\",\n      \"via\": \"1.1 4a902cabdcc0eca6e00cc44c2a8b91da.cloudfront.net (CloudFront)\",\n      \"x-amz-cf-pop\": \"VIE50-C2\",\n      \"x-amz-cf-id\": \"4SBTaApEucxbYVSka65sI02RzsWAjTupv0Ajz6Ar8fpU9wDBM_kzlg==\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE BODY\",\n    \"value\": {}\n  }\n]",
+          "code": "const requestBody = await generateCreateProjectRequestBody();\nrequestBody.color = \"tangerine\";\nawait request(\n  this,\n  \"POST\",\n  `/projects/${global.executionVariables[\"projectID\"]}`,\n  requestBody,\n  true,\n  {\n    statusCode: 400,\n    notExpectedFields: [],\n  }\n);",
+          "err": {},
+          "uuid": "ae6a6326-75ec-4c95-9398-e8e5b9a31197",
+          "parentUUID": "18f16407-3aa0-42af-8fbc-65e3c9289327",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Get project",
+          "fullTitle": "Get project",
+          "timedOut": false,
+          "duration": 248,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": "[\n  \"GET /projects/2334234613\",\n  {\n    \"title\": \"REQUEST HEADERS\",\n    \"value\": {\n      \"Content-Type\": \"application/json\",\n      \"Accept\": \"*/*\",\n      \"Connection\": \"keep-alive\",\n      \"Authorization\": \"Bearer 8395c13ccb7bc7a2e9cb028274f0348ce487a139\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE HEADERS\",\n    \"value\": {\n      \"content-type\": \"application/json\",\n      \"content-length\": \"305\",\n      \"connection\": \"keep-alive\",\n      \"date\": \"Tue, 04 Jun 2024 03:04:38 GMT\",\n      \"access-control-allow-credentials\": \"false\",\n      \"access-control-allow-origin\": \"*\",\n      \"referrer-policy\": \"strict-origin-when-cross-origin\",\n      \"server\": \"gunicorn\",\n      \"set-cookie\": [\n        \"csrf=d2b8c72fa3c743a487bc17acaedcb3ef; Expires=Fri, 02-Jun-2034 03:04:38 GMT; Secure; Path=/; SameSite=None\",\n        \"tduser=v4.public.eyJ1c2VyX2lkIjogNDk0NjQwMTksICJleHAiOiAiMjAyNC0wNi0xOFQwMzowNDozOCswMDowMCJ9REMV1A6DVzazhDfAQdk6EQ3kO9-rxGHD8xZs1nISYc9hb8Gj4PZegJ3kVnaVo6-GjnOalzFDAMOj5tSwsXXYAw; Domain=.todoist.com; Expires=Tue, 18-Jun-2024 03:04:38 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/\",\n        \"todoistd=\\\"/CUdA09psYiwY7pwgn9sRGC/RQQ=?\\\"; Domain=.todoist.com; Expires=Wed, 04-Jun-2025 03:04:38 GMT; Max-Age=31536000; Secure; HttpOnly; Path=/; SameSite=None\"\n      ],\n      \"strict-transport-security\": \"max-age=31536000; includeSubDomains; preload\",\n      \"vary\": \"Accept-Encoding\",\n      \"x-cache\": \"Miss from cloudfront\",\n      \"via\": \"1.1 218366faeb88f6d265d2589e37ea2dac.cloudfront.net (CloudFront)\",\n      \"x-amz-cf-pop\": \"VIE50-C2\",\n      \"x-amz-cf-id\": \"1CkHLhyZNuX-6LDM5x0gOsPoTh-r2V8kOUoEqLJV7KODHQ_NTu67Zg==\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE BODY\",\n    \"value\": {\n      \"id\": \"2334234613\",\n      \"parent_id\": null,\n      \"order\": 4,\n      \"color\": \"light_blue\",\n      \"name\": \"Mafalda.Towne\",\n      \"comment_count\": 0,\n      \"is_shared\": false,\n      \"is_favorite\": false,\n      \"is_inbox_project\": false,\n      \"is_team_inbox\": false,\n      \"url\": \"https://todoist.com/showProject?id=2334234613\",\n      \"view_style\": \"list\"\n    }\n  }\n]",
+          "code": "await request(\n  this,\n  \"GET\",\n  `/projects/${global.executionVariables[\"projectID\"]}`,\n  undefined,\n  true,\n  {\n    statusCode: 200,\n    expectedValues: [\n      {\n        path: \"id\",\n        value: `${global.executionVariables[\"projectID\"]}`,\n        path: \"name\",\n        value: `${global.executionVariables[\"projectName\"]}`,\n        path: \"color\",\n        value: `${global.executionVariables[\"projectColor\"]}`,\n      },\n    ],\n    expectedTypes: [\n      { path: \"id\", type: \"string\" },\n      { path: \"name\", type: \"string\" },\n      { path: \"color\", type: \"string\" },\n    ],\n  }\n);",
+          "err": {},
+          "uuid": "1f5075d2-136c-4d05-a1ed-427d0584ebad",
+          "parentUUID": "18f16407-3aa0-42af-8fbc-65e3c9289327",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "b357330e-c431-4975-b9ed-7b73376c63fe",
+          "title": "[POSITIVE]",
+          "fullFile": "/Users/bjornisyla/Desktop/RestAPI-FinalTask/tests/scenarios/projectCRUD.js",
+          "file": "/tests/scenarios/projectCRUD.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Update created Project",
+              "fullTitle": "[POSITIVE] Update created Project",
+              "timedOut": false,
+              "duration": 524,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  \"POST /projects/2334234613\",\n  {\n    \"title\": \"REQUEST HEADERS\",\n    \"value\": {\n      \"Content-Type\": \"application/json\",\n      \"Accept\": \"*/*\",\n      \"Connection\": \"keep-alive\",\n      \"Authorization\": \"Bearer 8395c13ccb7bc7a2e9cb028274f0348ce487a139\"\n    }\n  },\n  {\n    \"title\": \"REQUEST BODY\",\n    \"value\": {\n      \"name\": \"Joan41\",\n      \"color\": \"lavender\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE HEADERS\",\n    \"value\": {\n      \"content-type\": \"application/json\",\n      \"content-length\": \"296\",\n      \"connection\": \"keep-alive\",\n      \"date\": \"Tue, 04 Jun 2024 03:04:39 GMT\",\n      \"access-control-allow-credentials\": \"false\",\n      \"access-control-allow-origin\": \"*\",\n      \"cache-control\": \"no-cache\",\n      \"referrer-policy\": \"strict-origin-when-cross-origin\",\n      \"server\": \"gunicorn\",\n      \"set-cookie\": [\n        \"csrf=c2084379b17841a3a06b416814badecd; Expires=Fri, 02-Jun-2034 03:04:39 GMT; Secure; Path=/; SameSite=None\",\n        \"tduser=v4.public.eyJ1c2VyX2lkIjogNDk0NjQwMTksICJleHAiOiAiMjAyNC0wNi0xOFQwMzowNDozOSswMDowMCJ9Y13puXs8dzyy8xRQBol9LKY4Q32mMzFntOiosFt8ZKBcLwoNknvJxriaPrMbONSDp3fiiRJpfQrLfOgdvKlRBQ; Domain=.todoist.com; Expires=Tue, 18-Jun-2024 03:04:39 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/\",\n        \"todoistd=\\\"/CUdA09psYiwY7pwgn9sRGC/RQQ=?\\\"; Domain=.todoist.com; Expires=Wed, 04-Jun-2025 03:04:39 GMT; Max-Age=31536000; Secure; HttpOnly; Path=/; SameSite=None\"\n      ],\n      \"strict-transport-security\": \"max-age=31536000; includeSubDomains; preload\",\n      \"vary\": \"Accept-Encoding\",\n      \"x-cache\": \"Miss from cloudfront\",\n      \"via\": \"1.1 b0311c7e530c126dd286898583b59e4c.cloudfront.net (CloudFront)\",\n      \"x-amz-cf-pop\": \"VIE50-C2\",\n      \"x-amz-cf-id\": \"tk45JuEqhO1OL7ZBfXkhZGbGM5BmgF1qVxIHuiVKbw0RIrvwkWa1bg==\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE BODY\",\n    \"value\": {\n      \"id\": \"2334234613\",\n      \"parent_id\": null,\n      \"order\": 4,\n      \"color\": \"lavender\",\n      \"name\": \"Joan41\",\n      \"comment_count\": 0,\n      \"is_shared\": false,\n      \"is_favorite\": false,\n      \"is_inbox_project\": false,\n      \"is_team_inbox\": false,\n      \"url\": \"https://todoist.com/showProject?id=2334234613\",\n      \"view_style\": \"list\"\n    }\n  }\n]",
+              "code": "const requestBody = await generateCreateProjectRequestBody();\nawait request(\n  this,\n  \"POST\",\n  `/projects/${global.executionVariables[\"projectID\"]}`,\n  requestBody,\n  true,\n  {\n    statusCode: 200,\n    expectedValues: [\n      {\n        path: \"name\",\n        value: requestBody.name,\n        path: \"color\",\n        value: requestBody.color,\n      },\n    ],\n    expectedTypes: [\n      { path: \"id\", type: \"string\" },\n      { path: \"name\", type: \"string\" },\n      { path: \"color\", type: \"string\" },\n    ],\n    executionVariables: [\n      { path: \"id\", name: \"projectID\" },\n      { path: \"name\", name: \"projectName\" },\n      { path: \"color\", name: \"projectColor\" },\n    ],\n  }\n);",
+              "err": {},
+              "uuid": "89cba3c5-1e49-48b2-a71b-cf455d5075a6",
+              "parentUUID": "b357330e-c431-4975-b9ed-7b73376c63fe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get project",
+              "fullTitle": "[POSITIVE] Get project",
+              "timedOut": false,
+              "duration": 244,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  \"GET /projects/2334234613\",\n  {\n    \"title\": \"REQUEST HEADERS\",\n    \"value\": {\n      \"Content-Type\": \"application/json\",\n      \"Accept\": \"*/*\",\n      \"Connection\": \"keep-alive\",\n      \"Authorization\": \"Bearer 8395c13ccb7bc7a2e9cb028274f0348ce487a139\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE HEADERS\",\n    \"value\": {\n      \"content-type\": \"application/json\",\n      \"content-length\": \"296\",\n      \"connection\": \"keep-alive\",\n      \"date\": \"Tue, 04 Jun 2024 03:04:39 GMT\",\n      \"access-control-allow-credentials\": \"false\",\n      \"access-control-allow-origin\": \"*\",\n      \"referrer-policy\": \"strict-origin-when-cross-origin\",\n      \"server\": \"gunicorn\",\n      \"set-cookie\": [\n        \"csrf=18731eae934640498acbf1182586594f; Expires=Fri, 02-Jun-2034 03:04:39 GMT; Secure; Path=/; SameSite=None\",\n        \"tduser=v4.public.eyJ1c2VyX2lkIjogNDk0NjQwMTksICJleHAiOiAiMjAyNC0wNi0xOFQwMzowNDozOSswMDowMCJ9Y13puXs8dzyy8xRQBol9LKY4Q32mMzFntOiosFt8ZKBcLwoNknvJxriaPrMbONSDp3fiiRJpfQrLfOgdvKlRBQ; Domain=.todoist.com; Expires=Tue, 18-Jun-2024 03:04:39 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/\",\n        \"todoistd=\\\"/CUdA09psYiwY7pwgn9sRGC/RQQ=?\\\"; Domain=.todoist.com; Expires=Wed, 04-Jun-2025 03:04:39 GMT; Max-Age=31536000; Secure; HttpOnly; Path=/; SameSite=None\"\n      ],\n      \"strict-transport-security\": \"max-age=31536000; includeSubDomains; preload\",\n      \"vary\": \"Accept-Encoding\",\n      \"x-cache\": \"Miss from cloudfront\",\n      \"via\": \"1.1 614c7e2196cc5b32f71450d1d8261094.cloudfront.net (CloudFront)\",\n      \"x-amz-cf-pop\": \"VIE50-C2\",\n      \"x-amz-cf-id\": \"ODPqS1aG5EWh8x4DPIAoN3EoOFYcVNBCs0MslPICikG0qotL4sdhgw==\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE BODY\",\n    \"value\": {\n      \"id\": \"2334234613\",\n      \"parent_id\": null,\n      \"order\": 4,\n      \"color\": \"lavender\",\n      \"name\": \"Joan41\",\n      \"comment_count\": 0,\n      \"is_shared\": false,\n      \"is_favorite\": false,\n      \"is_inbox_project\": false,\n      \"is_team_inbox\": false,\n      \"url\": \"https://todoist.com/showProject?id=2334234613\",\n      \"view_style\": \"list\"\n    }\n  }\n]",
+              "code": "await request(\n  this,\n  \"GET\",\n  `/projects/${global.executionVariables[\"projectID\"]}`,\n  undefined,\n  true,\n  {\n    statusCode: 200,\n    expectedValues: [\n      {\n        path: \"id\",\n        value: `${global.executionVariables[\"projectID\"]}`,\n        path: \"name\",\n        value: `${global.executionVariables[\"projectName\"]}`,\n        path: \"color\",\n        value: `${global.executionVariables[\"projectColor\"]}`,\n      },\n    ],\n    expectedTypes: [\n      { path: \"id\", type: \"string\" },\n      { path: \"name\", type: \"string\" },\n      { path: \"color\", type: \"string\" },\n    ],\n  }\n);",
+              "err": {},
+              "uuid": "397a5507-3d1a-417d-a1ae-5543d6a4f557",
+              "parentUUID": "b357330e-c431-4975-b9ed-7b73376c63fe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete created Project",
+              "fullTitle": "[POSITIVE] Delete created Project",
+              "timedOut": false,
+              "duration": 576,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "[\n  \"DELETE /projects/2334234613\",\n  {\n    \"title\": \"REQUEST HEADERS\",\n    \"value\": {\n      \"Content-Type\": \"application/json\",\n      \"Accept\": \"*/*\",\n      \"Connection\": \"keep-alive\",\n      \"Authorization\": \"Bearer 8395c13ccb7bc7a2e9cb028274f0348ce487a139\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE HEADERS\",\n    \"value\": {\n      \"content-type\": \"text/html; charset=utf-8\",\n      \"connection\": \"keep-alive\",\n      \"date\": \"Tue, 04 Jun 2024 03:04:40 GMT\",\n      \"access-control-allow-credentials\": \"false\",\n      \"access-control-allow-origin\": \"*\",\n      \"cache-control\": \"no-cache\",\n      \"referrer-policy\": \"strict-origin-when-cross-origin\",\n      \"server\": \"gunicorn\",\n      \"set-cookie\": [\n        \"csrf=82a3b0940bd847ba971976828eb790d3; Expires=Fri, 02-Jun-2034 03:04:40 GMT; Secure; Path=/; SameSite=None\",\n        \"tduser=v4.public.eyJ1c2VyX2lkIjogNDk0NjQwMTksICJleHAiOiAiMjAyNC0wNi0xOFQwMzowNDo0MCswMDowMCJ92emrV8A7q6h2kwOGPoeBPQ13BBAvdjR4bn09Ll3oMOvueaxCTL201o6BIMcEl2k6NdZKLVYR2vMQiPCLtvxoCA; Domain=.todoist.com; Expires=Tue, 18-Jun-2024 03:04:40 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/\",\n        \"todoistd=\\\"/CUdA09psYiwY7pwgn9sRGC/RQQ=?\\\"; Domain=.todoist.com; Expires=Wed, 04-Jun-2025 03:04:40 GMT; Max-Age=31536000; Secure; HttpOnly; Path=/; SameSite=None\"\n      ],\n      \"strict-transport-security\": \"max-age=31536000; includeSubDomains; preload\",\n      \"vary\": \"Accept-Encoding\",\n      \"x-cache\": \"Miss from cloudfront\",\n      \"via\": \"1.1 39103e0eac16074bdce5f23fa11c3dcc.cloudfront.net (CloudFront)\",\n      \"x-amz-cf-pop\": \"VIE50-C2\",\n      \"x-amz-cf-id\": \"5OSyu3-TytfHWcHeAF7OBQoHx9TP3EiA9lwfxboUDPyvOuGF9TQN8Q==\"\n    }\n  },\n  {\n    \"title\": \"RESPONSE BODY\",\n    \"value\": {}\n  }\n]",
+              "code": "await request(\n  this,\n  \"DELETE\",\n  `/projects/${global.executionVariables[\"projectID\"]}`,\n  undefined,\n  true,\n  {\n    statusCode: 204,\n  }\n);",
+              "err": {},
+              "uuid": "5da908ed-091b-4b5a-9f72-c2fe1de8ccbc",
+              "parentUUID": "b357330e-c431-4975-b9ed-7b73376c63fe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "89cba3c5-1e49-48b2-a71b-cf455d5075a6",
+            "397a5507-3d1a-417d-a1ae-5543d6a4f557",
+            "5da908ed-091b-4b5a-9f72-c2fe1de8ccbc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1344,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        }
+      ],
+      "passes": [
+        "e0182094-f548-4f4d-b8c5-54aa2a0e5971",
+        "f8b137be-9687-4a8d-840b-20a8b0c3037b",
+        "e370e27a-65a4-43ea-bccc-9f3db6f19d9e",
+        "ae6a6326-75ec-4c95-9398-e8e5b9a31197",
+        "1f5075d2-136c-4d05-a1ed-427d0584ebad"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 1580,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 20000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.4.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "mochawesome-report",
+        "quite": true,
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
